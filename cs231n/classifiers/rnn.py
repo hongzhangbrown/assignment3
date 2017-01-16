@@ -250,7 +250,7 @@ class CaptioningRNN(object):
         h,_ = rnn_step_forward(np.squeeze(word_embed),prev_h,Wx,Wh,b)
     
       elif self.cell_type == 'lstm':
-        h,c,_ = lstm_step_forward(np.squeeze(word_embed),pre_h,prev_c,Wx,Wh,b)
+        h,c,_ = lstm_step_forward(np.squeeze(word_embed),prev_h,prev_c,Wx,Wh,b)
     
     
       scores, _= temporal_affine_forward(h[:,np.newaxis,:],W_vocab,b_vocab)
